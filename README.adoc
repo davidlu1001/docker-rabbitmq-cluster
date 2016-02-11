@@ -75,7 +75,7 @@ haproxy:
 Haproxy Configuration:
 ----------------------
 
-`haproxy:1.5` base image used.
+`haproxy:1.5` base image used. Haproxy configuration made in http://www.joshdevins.net/2010/04/16/rabbitmq-ha-testing-with-haproxy/[this] way.
 Haproxy logging configuration done by using method described http://kvz.io/blog/2010/08/11/haproxy-logging/[here].
 
 
