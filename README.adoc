@@ -1,5 +1,13 @@
 This folder structure contains the Dockerfiles for building RabbitMQ clusters with high availability and haproxy instance running on top of them - the number of nodes are completely customizable using https://docs.docker.com/compose/[docker-compose] docker-compose.yml file.
 
+Running the Cluster:
+--------------------
+Once the images are built, boot up the cluster using the docker-compose.yml configuration provided in cluster folder:
+
+[source]
+----
+docker-compose up -d
+----
 
 Structure:
 ==========
@@ -18,21 +26,8 @@ all the queues to the all nodes in the cluster.You can read more on highly avail
 rabbitmqctl set_policy ha-all "." '{"ha-mode":"all","ha-sync-mode":"automatic"}'
 ----
 
-
-Haproxy Configuration:
-----------------------
-
-haproxy:1.5 base image used for haproxy image. Haproxy logging configuration done by using
-method described http://kvz.io/blog/2010/08/11/haproxy-logging/[here].
-
-Running the Cluster:
---------------------
-Once the images are built, boot up the cluster using the docker-compose.yml configuration provided in cluster folder:
-
-[source]
-----
-docker-compose up -d
-----
+Docker compose structure:
+-------------------------
 
 By default 2 nodes and 1 haproxy container are started up this way:
 Note: You can remove port mappings for rabbit nodes since they will be accessed
@@ -70,6 +65,13 @@ haproxy:
     - "5670:5670"
     - "15670:15670"
 ----
+
+Haproxy Configuration:
+----------------------
+
+`haproxy:1.5` base image used.
+Haproxy logging configuration done by using method described http://kvz.io/blog/2010/08/11/haproxy-logging/[here].
+
 
 If needed, additional nodes can be added to this file. If the entire cluster comes up, the management console can be accessed at http://<dockerip>:15670
 
