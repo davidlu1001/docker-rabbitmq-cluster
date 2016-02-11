@@ -18,8 +18,15 @@ all the queues to the all nodes in the cluster.You can read more on highly avail
 rabbitmqctl set_policy ha-all "." '{"ha-mode":"all","ha-sync-mode":"automatic"}'
 ----
 
+
+Haproxy Configuration:
+----------------------
+
+haproxy:1.5 base image used for haproxy image. Haproxy logging configuration done by using
+method described http://kvz.io/blog/2010/08/11/haproxy-logging/[here].
+
 Running the Cluster:
-====================
+--------------------
 Once the images are built, boot up the cluster using the docker-compose.yml configuration provided in cluster folder:
 
 [source]
