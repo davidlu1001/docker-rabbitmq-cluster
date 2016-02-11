@@ -1,7 +1,0 @@
-logging: http://kvz.io/blog/2010/08/11/haproxy-logging/
-
-Feb 11 09:49:04 localhost haproxy[35]: Proxy Rabbitmq_local_cluster started.
-Feb 11 09:49:04 localhost haproxy[35]: Proxy Rabbitmq_management_console started.
-Feb 11 09:49:04 localhost haproxy[35]: Proxy private_monitoring started.
-Feb 11 09:49:05 localhost haproxy[36]: Backup Server Rabbitmq_local_cluster/rabbit_2 is DOWN, reason: Layer4 connection problem, info: "Connection refused", check duration: 0ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
-Feb 11 09:49:07 localhost haproxy[36]: Backup Server Rabbitmq_management_console/rabbit_2 is DOWN, reason: Layer4 connection problem, info: "Connection refused", check duration: 0ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
