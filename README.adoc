@@ -34,36 +34,34 @@ by haproxy instance.I opened them up to access from outside world to rabbit node
 [source]
 ----
 rabbit1:
-  image: bijukunjummen/rabbitmq-server
+  image: mustafakosker/rabbitmq-ha-cluster
   hostname: rabbit1
   ports:
     - "5672:5672"
     - "15672:15672"
 
 rabbit2:
-  image: bijukunjummen/rabbitmq-server
+  image: mustafakosker/rabbitmq-ha-cluster
   hostname: rabbit2
   links:
     - rabbit1
   environment:
    - CLUSTERED=true
    - CLUSTER_WITH=rabbit1
-   - RAM_NODE=true
   ports:
-      - "5673:5672"
-      - "15673:15672"
+        - "5673:5672"
+        - "15673:15672"
 
-rabbit3:
-  image: bijukunjummen/rabbitmq-server
-  hostname: rabbit3
+haproxy:
+  image: mustafakosker/rabbitmq-ha-haproxy
+  hostname: haproxy
   links:
     - rabbit1
     - rabbit2
-  environment:
-   - CLUSTERED=true
-   - CLUSTER_WITH=rabbit1
   ports:
-        - "5674:5672"
+    - "8100:8100"
+    - "5670:5670"
+    - "15670:15670"
 ----
 
 If needed, additional nodes can be added to this file. If the entire cluster comes up, the management console can be accessed at http://<dockerip>:15670

@@ -20,7 +20,7 @@ else
 	fi
 fi
 
-# wait for rabbitmq to start
+# wait for rabbitmq to start, we need this to run below 'queue mirroring' configuration.
 sleep 10
 
 # Set policy to mirror all queues to all nodes in the cluster.
