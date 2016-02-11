@@ -18,9 +18,8 @@ all the queues to the all nodes in the cluster.You can read more on highly avail
 rabbitmqctl set_policy ha-all "." '{"ha-mode":"all","ha-sync-mode":"automatic"}'
 ----
 
-
 Running the Cluster:
-===============================
+====================
 Once the images are built, boot up the cluster using the docker-compose.yml configuration provided in cluster folder:
 
 [source]
@@ -74,4 +73,9 @@ Connections to the rabbitmq server should be made through haproxy instace, that 
 You can view stats page of haproxy using: http://<dockerip>:8100/stats
 
 Connection host should look like this: `dockerip:5672,dockerip:5673`
+
+To-Do List:
+-----------
+ - Upgrate to haproxy 1.6
+ - Use dynamic dns look-up described http://blog.haproxy.com/2015/11/17/haproxy-and-container-ip-changes-in-docker/[here]
 
