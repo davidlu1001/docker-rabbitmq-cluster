@@ -10,7 +10,7 @@ There are 3 folders.
 3. haproxy - This folder contains the Dockerfile that creats the haproxy image configured for master-slave setup
 4. cluster - This contains a https://docs.docker.com/compose/[docker-compose] definition file(docker-compose.yml) for brining up the rabbitmq cluster. Use `docker-compose up -d` to bring up the cluster.
 
-High availability achieved by using the configuration below in startrabbit.sh.This configuration will be mirroring
+High availability achieved by using the configuration below in `startrabbit.sh` .This configuration will be mirroring
 all the queues to the all nodes in the cluster.You can read more on highly available rabbitmq clustering  https://www.rabbitmq.com/ha.html[here].
 
 [source]
@@ -67,9 +67,11 @@ rabbit3:
         - "5674:5672"
 ----
 
-if needed, additional nodes can be added to this file. If the entire cluster comes up, the management console can be accessed at http://<dockerip>:15670
+If needed, additional nodes can be added to this file. If the entire cluster comes up, the management console can be accessed at http://<dockerip>:15670
+
 Connections to the rabbitmq server should be made through haproxy instace, that is http://<dockerip>:5670
+
 You can view stats page of haproxy using: http://<dockerip>:8100/stats
 
-and connection host should look like this: `dockerip:5672,dockerip:5673`
+Connection host should look like this: `dockerip:5672,dockerip:5673`
 
