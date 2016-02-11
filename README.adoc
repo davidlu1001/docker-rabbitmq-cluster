@@ -9,6 +9,12 @@ Once the images are built, boot up the cluster using the docker-compose.yml conf
 docker-compose up -d
 ----
 
+If the entire cluster comes up, the management console can be accessed at http://<dockerip>:15670
+
+Connections to the rabbitmq server should be made through haproxy instace, that is `<dockerip>:5670`
+
+You can view stats page of haproxy using: http://<dockerip>:8100/stats
+
 Structure:
 ==========
 There are 3 folders.
@@ -72,14 +78,6 @@ Haproxy Configuration:
 `haproxy:1.5` base image used.
 Haproxy logging configuration done by using method described http://kvz.io/blog/2010/08/11/haproxy-logging/[here].
 
-
-If needed, additional nodes can be added to this file. If the entire cluster comes up, the management console can be accessed at http://<dockerip>:15670
-
-Connections to the rabbitmq server should be made through haproxy instace, that is http://<dockerip>:5670
-
-You can view stats page of haproxy using: http://<dockerip>:8100/stats
-
-Connection host should look like this: `dockerip:5672,dockerip:5673`
 
 To-Do List:
 -----------
