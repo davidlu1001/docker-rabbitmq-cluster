@@ -42,14 +42,14 @@ by haproxy instance.I opened them up to access from outside world to rabbit node
 [source]
 ----
 rabbit1:
-  image: mustafakosker/rabbitmq-ha-cluster
+  image: davidlu1001/rabbitmq-ha-cluster
   hostname: rabbit1
   ports:
     - "5672:5672"
     - "15672:15672"
 
 rabbit2:
-  image: mustafakosker/rabbitmq-ha-cluster
+  image: davidlu1001/rabbitmq-ha-cluster
   hostname: rabbit2
   links:
     - rabbit1
@@ -61,7 +61,7 @@ rabbit2:
         - "15673:15672"
 
 haproxy:
-  image: mustafakosker/rabbitmq-ha-haproxy
+  image: davidlu1001/rabbitmq-ha-haproxy
   hostname: haproxy
   links:
     - rabbit1
@@ -77,10 +77,4 @@ Haproxy Configuration:
 
 `haproxy:1.5` base image used. Haproxy configuration made in http://www.joshdevins.net/2010/04/16/rabbitmq-ha-testing-with-haproxy/[this] way.
 Haproxy logging configuration done by using method described http://kvz.io/blog/2010/08/11/haproxy-logging/[here].
-
-
-To-Do List:
------------
- - Upgrate to haproxy 1.6
- - Use dynamic dns look-up described http://blog.haproxy.com/2015/11/17/haproxy-and-container-ip-changes-in-docker/[here]
 

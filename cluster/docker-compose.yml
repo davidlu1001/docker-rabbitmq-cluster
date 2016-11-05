@@ -1,12 +1,12 @@
 rabbit1:
-  image: mustafakosker/rabbitmq-ha-cluster
+  image: davidlu1001/rabbitmq-ha-cluster
   hostname: rabbit1
   ports:
     - "5672:5672"
     - "15672:15672"
 
 rabbit2:
-  image: mustafakosker/rabbitmq-ha-cluster
+  image: davidlu1001/rabbitmq-ha-cluster
   hostname: rabbit2
   links:
     - rabbit1
@@ -18,7 +18,7 @@ rabbit2:
         - "15673:15672"
 
 haproxy:
-  image: mustafakosker/rabbitmq-ha-haproxy
+  image: davidlu1001/rabbitmq-ha-haproxy
   hostname: haproxy
   links:
     - rabbit1
