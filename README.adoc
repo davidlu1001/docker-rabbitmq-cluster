@@ -6,6 +6,7 @@ Once the images are built, boot up the cluster using the docker-compose.yml conf
 
 [source]
 ----
+cd cluster/
 docker-compose up -d
 ----
 
